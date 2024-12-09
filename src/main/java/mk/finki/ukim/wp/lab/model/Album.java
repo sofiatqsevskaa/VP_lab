@@ -18,7 +18,7 @@ public class Album {
     private String genre;
     private String releaseYear;
 
-    @OneToMany
+    @OneToMany(mappedBy = "album")
     private List<Song> songs;
 
     public Album(String name, String genre, String releaseYear) {

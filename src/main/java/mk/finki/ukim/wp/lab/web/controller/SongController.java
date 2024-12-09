@@ -36,6 +36,8 @@ public class SongController {
         Song song = new Song(title, genre,  Integer.parseInt(releaseYear), new ArrayList<>());
         songService.save(song);
         song.setAlbum(album);
+        songService.save(song);
+
         return "redirect:/songs";
     }
 
@@ -55,27 +57,26 @@ public class SongController {
         return "editSong";
     }
 
-    @PostMapping("/edit")
-    public String editSong(@RequestParam Long id, @RequestParam String title,
-                           @RequestParam String genre, @RequestParam String releaseYear,
-                           @RequestParam Long albumId) {
-        Song song = songService.findById(id);
-        if (song == null) {
-            return "redirect:/songs?error=SongNotFound";
-        }
-        Album album = albumService.findById(albumId);
-        song.setTitle(title);
-        song.setGenre(genre);
-        song.setReleaseYear(Integer.parseInt(releaseYear));
-        song.setAlbum(album);
-        songService.save(song);
-        return "redirect:/songs";
-    }
-
 
     @GetMapping("/delete/{id}")
     public String deleteSong(@PathVariable Long id) {
         songService.delete(id);
         return "redirect:/songs";
     }
+
+    @PostMapping("/edit")
+    public String updateSong(@RequestParam Long id, @RequestParam String title,
+                             @RequestParam String genre, @RequestParam String releaseYear,
+                             @RequestParam Long albumId) {
+        Song song = songService.findById(id);
+        Album album = albumService.findById(albumId);
+        song.setTitle(title);
+        song.setGenre(genre);
+        song.setReleaseYear(Integer.parseInt(releaseYear));
+        song.setAlbum(album);
+
+        songService.save(song);
+        return "redirect:/songs";
+    }
+
 }

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: mk.finki.ukim.wp.lab.LabApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.752 s -- in mk.finki.ukim.wp.lab.LabApplicationTests
