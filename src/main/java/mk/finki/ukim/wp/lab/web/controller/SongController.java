@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/songs")
@@ -77,6 +79,16 @@ public class SongController {
 
         songService.save(song);
         return "redirect:/songs";
+    }
+
+    @PostMapping("/search")
+    public String searchByAlbumAndReleaseYear(@RequestParam Long albumId1, @RequestParam int releaseY, Model model){
+        List<Song> songs = songService.findAllByAlbumAndYear(albumId1,releaseY-1);
+        if (songs.isEmpty()){
+            songs=songService.listSongs();
+        }
+        model.addAttribute("songs", songs);
+        return "songList";
     }
 
 }

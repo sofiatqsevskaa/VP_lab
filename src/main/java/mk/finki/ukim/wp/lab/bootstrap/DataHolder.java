@@ -45,9 +45,13 @@ public class DataHolder {
         }
 
         songs = new ArrayList<>();
-        songs.add(new Song("zdr", "rock", 2017, artistList.stream().filter(a -> a.getFirstName().startsWith("M")).collect(Collectors.toList())));
+        songs.add(new Song("zdr", "rock", 2011, artistList.stream().filter(a -> a.getFirstName().startsWith("M")).collect(Collectors.toList())));
         songs.add(new Song("kakosi", "rock", 2019, artistList.stream().filter(a -> a.getFirstName().startsWith("I")).collect(Collectors.toList())));
         songs.add(new Song("ne znam", "pop", 2014, artistList.stream().filter(a -> a.getFirstName().startsWith("D")).collect(Collectors.toList())));
+        songs.add(new Song("jadam jagodi", "rock", 2019, artistList.stream().filter(a -> a.getFirstName().startsWith("I")).collect(Collectors.toList())));
+        songs.add(new Song("vrne dozd", "rock", 2019, artistList.stream().filter(a -> a.getFirstName().startsWith("I")).collect(Collectors.toList())));
+        songs.add(new Song("koj si ti", "rock", 2015, artistList.stream().filter(a -> a.getFirstName().startsWith("I")).collect(Collectors.toList())));
+
 
         albums=new ArrayList<>();
         albums.add(new Album("Album 1", "Rock", "2020"));
